@@ -5,6 +5,7 @@ import Images from './imagecollection.js';
 import {Actions,Router,Scene} from 'react-native-router-flux';
 
 
+
 const products = () => {
     
     const [items, setitems]= useState([{"id":"0","item": "Apple", "Price":"5",Qty:0, "Desc":"Fresh Apple from Simla","path":"1"}
@@ -24,7 +25,7 @@ const products = () => {
  }
   const additams = index => e => {
 
-    console.log('index: ' + index);
+    
     let newArr = [...items]; // copying the old datas array
     newArr[index].Qty = newArr[index].Qty+1; // replace e.target.value with whatever you want to change it to
 
@@ -33,7 +34,7 @@ const products = () => {
 }
 const delitems = index => e => {
 
-  console.log('index: ' + index);
+  
   let newArr = [...items]; // copying the old datas array
  if(!newArr[index].Qty==0){
   newArr[index].Qty = newArr[index].Qty-1; // replace e.target.value with whatever you want to change it to
@@ -53,7 +54,7 @@ const delitems = index => e => {
             Total Price : ${tot}
           </Text>
           <Text style={{paddingLeft:3, paddingTop:20, paddingBottom:20}}>
-            <Button title='Checkout' onPress={()=> Actions.Checkout()}/>
+            <Button title='Checkout' onPress={()=>{Actions.Checkout([items,tot])}}/>
           </Text>
         </View>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
