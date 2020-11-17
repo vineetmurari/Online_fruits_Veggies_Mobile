@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {ScrollView,Image,StyleSheet ,Button, View } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Text, Body} from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body, Item} from "native-base";
 import Images from './imagecollection.js';
+import {Actions,Router,Scene} from 'react-native-router-flux';
+
 
 const products = () => {
     
@@ -13,6 +15,13 @@ const products = () => {
 
   const [tot, settot]=useState(0);
 
+ function tottalprice(){
+   total_p =0
+   items.map((y)=>{
+    total_p=total_p+(y.Qty*y.Price);
+   })
+   return total_p;
+ }
   const additams = index => e => {
 
     console.log('index: ' + index);
@@ -20,7 +29,7 @@ const products = () => {
     newArr[index].Qty = newArr[index].Qty+1; // replace e.target.value with whatever you want to change it to
 
     setitems(newArr); 
-    settot(tot+1)
+    settot(tottalprice)
 }
 const delitems = index => e => {
 
@@ -30,7 +39,7 @@ const delitems = index => e => {
   newArr[index].Qty = newArr[index].Qty-1; // replace e.target.value with whatever you want to change it to
  }
   setitems(newArr); 
-  settot(tot+1)
+  settot(tottalprice)
 } 
 
 
@@ -38,13 +47,13 @@ const delitems = index => e => {
       <React.Fragment>
         <View  style={{flexDirection:'row', flexWrap:'wrap', backgroundColor:'#D3D0FE'}}>
           <Text style={{padding:20}}>
-            <Button title='Logout'/>
+            <Button title='Logout' onPress={()=>Actions.Login()}/>
           </Text>
           <Text style={{paddingTop:20,paddingBottom:20, paddingLeft:10, paddingRight:20}}>
             Total Price : ${tot}
           </Text>
           <Text style={{paddingLeft:3, paddingTop:20, paddingBottom:20}}>
-            <Button title='Checkout'/>
+            <Button title='Checkout' onPress={()=> Actions.Checkout()}/>
           </Text>
         </View>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>

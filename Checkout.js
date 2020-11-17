@@ -5,7 +5,7 @@ const checkout = () => {
     const [Username, setUsername] = useState('');
     const [password, setpassword] = useState('');
     return (
-  console.log()
+  <Text>HEllo</Text>
     );
   }
 
