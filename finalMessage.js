@@ -5,7 +5,7 @@ const final = () => {
     const [Username, setUsername] = useState('');
     const [password, setpassword] = useState('');
     return (
-  console.log()
+      <Text> Success! Your Order is placed!!</Text>
     );
   }
 

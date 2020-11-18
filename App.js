@@ -5,6 +5,7 @@ import Products from './Products';
 import Login from './Login'
 import Checkout from './Checkout';
 import finalMessage from './finalMessage';
+import Forms from './Forms';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <Scene key="Products" component={Products} title="Products"  />
     <Scene key="Checkout" component={Checkout} title="Checkout" />
     <Scene key="finalMessage" component={finalMessage} title="finalMessage" />
+    <Scene key="Forms" component={Forms} title="Billing Address" />
     </Stack>
   </Router>
   );
