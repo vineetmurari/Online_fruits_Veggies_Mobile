@@ -16,7 +16,7 @@ const App = () => {
     <Scene key="Login" component={Login} title="Login"   />
     <Scene key="Products" component={Products} title="Products"  />
     <Scene key="Checkout" component={Checkout} title="Checkout" />
-    <Scene key="finalMessage" component={finalMessage} title="finalMessage" />
+    <Scene key="finalMessage" component={finalMessage} title="Orders" />
     <Scene key="Forms" component={Forms} title="Billing Address" />
     </Stack>
   </Router>
