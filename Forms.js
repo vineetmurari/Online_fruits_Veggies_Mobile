@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Image, StyleSheet, Button,Alert,Picker } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import {Actions,Router,Scene} from 'react-native-router-flux';
 
 const Form =()=>{
@@ -26,37 +27,41 @@ return(
 
         {selectedValue=='Add Adddress'?(
         <View>
+         
         <View style={styles.separator} />
+        
         <TextInput
         placeholder="Address *"
         defaultValue={Addr}
         onChangeText={text => setAddr(text)}
-        style={{height: 30, alignSelf:'center'}}
+        style={{height: 50, alignSelf:'center'}}
       />
       
         <View style={styles.separator} />
-       
+           
         <TextInput
         placeholder="City *"
         defaultValue={City}
         onChangeText={text => setCity(text)}
-        style={{height: 30, alignSelf:'center'}}
+        style={{height: 50, alignSelf:'center'}}
       />
       
+     
         <View style={styles.separator} />
-      
+        
         <TextInput
         placeholder="Pincode *"
         defaultValue={Pin}
         onChangeText={text => setPin(text)}
-        style={{height: 30, alignSelf:'center'}}
+        style={{height: 50, alignSelf:'center'}}
       />
     
       <View style={styles.separator} />
+     
       </View>  ):null}  
 </View> 
 
-<View style={{height:100 , width:100, justifyContent:'center', alignSelf:'center'}}>   
+<View style={{height:100 , width:100, justifyContent:'center', alignSelf:'center', top:20}}>   
     
      <Button title="Done" onPress={()=>{if(selectedValue=='Add Adddress' && Addr==''){
          Alert.alert("Please fill the '*' marked fields") 
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
       borderBottomColor: '#737373',
       borderBottomWidth: StyleSheet.hairlineWidth,
       width:'70%',
-      height:'5%',
+      height:'1%',
       alignSelf:'center'
     },
   
@@ -120,6 +125,9 @@ const styles = StyleSheet.create({
       marginVertical: 1,
       color: '#b22222',
       padding:10
+    },
+    keyboard: {
+      height: 1
     }
   
   });
